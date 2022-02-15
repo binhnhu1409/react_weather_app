@@ -10,14 +10,16 @@ const App = () => {
   }
 
   return (
-    <form>
-      <input
-        value={locationName}
-        onChange={handleLocationChange}
-        placeholder='Please enter the name of a city'
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div>
+      <form>
+        <input
+          value={locationName}
+          onChange={handleLocationChange}
+          placeholder='Please enter the name of a city'
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
   )
 }
 
