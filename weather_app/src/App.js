@@ -52,7 +52,7 @@ const App = () => {
           onChange={handleLocationChange}
           placeholder='Please enter the name of a city'
         />
-        <button type="submit" onClick={getWeather}>View weather</button>
+        <button type="submit" onClick={getWeather}>Show weather info</button>
       </form>
       <div> {warningMessage}</div>
       <WeatherCard weather={weather} locationName={locationName} />

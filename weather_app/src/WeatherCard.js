@@ -23,9 +23,10 @@ const WeatherCard = (props) => {
 
     //return weather card after user input valid location name
     return (
-        <div className='weather'>
-            <p> {weather.Headline.Text} at {locationName} </p>
-            <a href={weather.Headline.Link}>More info</a>
+        <div className="weather">
+            <p>{locationName}</p>
+            <p> {weather.Headline.Text}</p>
+            <a href={weather.Headline.Link} target="_blank" rel="noopener noreferrer">More info</a>
             <p> {moment(new Date(weather.DailyForecasts[0].Date)).format('LL')} </p>
             <p> {weather.DailyForecasts[0].Day.IconPhrase} </p>
             <img src={getImg(weather.DailyForecasts[0].Day.Icon)} alt="" />
