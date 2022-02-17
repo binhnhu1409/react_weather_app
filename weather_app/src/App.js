@@ -45,7 +45,8 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className='container'>
+
       <form>
         <input
           value={locationName}
