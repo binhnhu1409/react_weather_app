@@ -51,8 +51,8 @@ const App = () => {
         />
         <button type="submit" onClick={getLocationIdByName}>View weather</button>
       </form>
-      <div>{locationName} {warningMessage}</div>
-      <WeatherCard weather={weather} />
+      <div> {warningMessage}</div>
+      <WeatherCard weather={weather} locationName={locationName} />
     </div>
   )
 }
