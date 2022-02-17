@@ -9,7 +9,7 @@ import WeatherCard from './WeatherCard';
 const App = () => {
 
   const [locationName, setLocationName] = useState()
-  const [weatherData, setWeatherData] = useState()
+  const [weather, setWeather] = useState()
   const [warningMessage, setWarningMessage] = useState()
 
   const handleLocationChange = (event) => {
@@ -29,16 +29,17 @@ const App = () => {
           axios
             .get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}`)
             .then(response => {
-              setWeatherData(response.data)
-              console.log('weatherData', weatherData)
+              setWeather(response.data)
               setWarningMessage('')
             })
         }
         else {
-          setWarningMessage('Invalid city name')
+          setWarningMessage('- Invalid city name')
         }
       })
   }
+
+
 
   return (
     <div>
@@ -50,8 +51,8 @@ const App = () => {
         />
         <button type="submit" onClick={getLocationIdByName}>View weather</button>
       </form>
-      <div>{locationName}, {warningMessage}</div>
-      <WeatherCard weatherData={weatherData} />
+      <div>{locationName} {warningMessage}</div>
+      <WeatherCard weather={weather} />
     </div>
   )
 }
