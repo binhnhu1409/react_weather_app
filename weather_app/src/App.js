@@ -10,7 +10,7 @@ const App = () => {
 
   const [locationName, setLocationName] = useState()
   const [weather, setWeather] = useState()
-  const [warningMessage, setWarningMessage] = useState()
+  const [errorMessage, setErrorMessage] = useState()
 
   //get location name from user input
   const handleLocationChange = (event) => {
@@ -34,12 +34,12 @@ const App = () => {
             .get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}`)
             .then(response => {
               setWeather(response.data)
-              setWarningMessage('')
+              setErrorMessage('')
             })
         }
         //otherwise, return a message to let user know input is invalid
         else {
-          setWarningMessage('Invalid city name!')
+          setErrorMessage('Some error happened...')
         }
       })
   }
@@ -54,7 +54,7 @@ const App = () => {
         />
         <button type="submit" onClick={getWeather}>Show weather info</button>
       </form>
-      <div> {warningMessage}</div>
+      <div> {errorMessage}</div>
       <WeatherCard weather={weather} locationName={locationName} />
     </div>
   )
