@@ -15,15 +15,21 @@ const App = () => {
   const [weather, setWeather] = useState()
   const [errorMessage, setErrorMessage] = useState()
 
+  //delete its value after user presses Enter, ready for new input
+  const temp = document.getElementById('temp')
+
   //get location name from user input
   const handleLocationChange = (event) => {
     console.log('locationName', event.target.value)
     setLocationName(event.target.value)
+    //erase old data immediately when there is any change on user's input
+    setWeather('')
   }
 
   //fetch data from Accuweather API
   async function getWeather(event) {
     event.preventDefault()
+    temp.value = ''
 
     //get location id based on location name
     axios
@@ -37,12 +43,21 @@ const App = () => {
             .get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}&metric=true`)
             .then(response => {
               setWeather(response.data)
-              setErrorMessage('')
+
+              //if the app cannot fetch data due to call limitation, return error
+              if (!weather) {
+                return (
+                  setErrorMessage('Oh nap! Some errors happened...')
+                )
+              }
             })
+
+
+
         }
         //otherwise, return a message to let user know input is invalid
         else {
-          setErrorMessage('Some error happened...')
+          setErrorMessage('Oh nap! Some errors happened...')
         }
       })
   }
@@ -54,7 +69,7 @@ const App = () => {
         <input
           autoComplete='off'
           autoFocus
-          value={locationName}
+          id='temp'
           onChange={handleLocationChange}
           placeholder='Please enter the name of a city'
         />
