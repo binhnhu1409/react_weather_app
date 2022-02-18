@@ -19,7 +19,7 @@ body {
 /*--- App component styling --- */
 form {
     position: relative;
-    top: 50px;
+    top: 20px;
     margin: 20px 10px 20px 10px;
     font-family: cursive;
     font-size: large;
@@ -46,8 +46,8 @@ input, button {
     background: url(assets\imgs\card.jpg) no-repeat fixed;
     border-radius: 0.5rem;
     position: relative;
-    padding: 30px 30px 30px 30px;
-    top: 80px;
+    padding: 20px 30px 20px 30px;
+    top: 60px;
 }
 
 .location, 
@@ -71,3 +71,17 @@ input, button {
     background-color: #ffffff;
     border-radius: 0.3rem;
 }
+
+/*--- Header and Footer ---*/
+.header {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: justify;
+    margin: 0 10px;
+    color: #8FC1D4;
+}
+.footer {
+    position: relative;
+    top: 100px;
+    color: #ffff;
+}
+

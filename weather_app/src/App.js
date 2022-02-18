@@ -5,6 +5,8 @@ import axios from 'axios';
 import API_KEY from './api';
 import WeatherCard from './WeatherCard';
 import Error from './Error';
+import Header from './Header';
+import Footer from './Footer';
 
 
 const App = () => {
@@ -47,6 +49,7 @@ const App = () => {
 
   return (
     <div className='App'>
+      <Header />
       <form>
         <input
           autoComplete='off'
@@ -60,6 +63,7 @@ const App = () => {
       <div> {errorMessage}</div>
       <WeatherCard weather={weather} locationName={locationName} />
       <Error errorMessage={errorMessage} />
+      <Footer />
     </div>
   )
 }
