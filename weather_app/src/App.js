@@ -31,7 +31,7 @@ const App = () => {
         //if fetch data successful, based on location id, get weather data
         if (response.data.length > 0) {
           axios
-            .get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}`)
+            .get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}&metric=true`)
             .then(response => {
               setWeather(response.data)
               setErrorMessage('')

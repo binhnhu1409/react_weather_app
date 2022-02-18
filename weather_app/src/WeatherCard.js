@@ -34,7 +34,7 @@ const WeatherCard = (props) => {
                         <div> {weather.DailyForecasts[0].Day.IconPhrase} </div>
                         <img src={getImg(weather.DailyForecasts[0].Day.Icon)} alt="" width='130px' />
                         <div className='temp'> {weather.DailyForecasts[0].Temperature.Minimum.Value} - {weather.DailyForecasts[0].Temperature.Maximum.Value}
-                            {weather.DailyForecasts[0].Temperature.Maximum.Unit} </div>
+                            °{weather.DailyForecasts[0].Temperature.Maximum.Unit} </div>
                         <div className='moreinfo'>On next 5 days:
                             <br />
                             {weather.Headline.Text}.
