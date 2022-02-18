@@ -45,10 +45,11 @@ const App = () => {
   }
 
   return (
-    <div className='container'>
-
+    <div className='App'>
       <form>
         <input
+          autoComplete='off'
+          autoFocus
           value={locationName}
           onChange={handleLocationChange}
           placeholder='Please enter the name of a city'

@@ -1,3 +1,71 @@
+html {
+    background: url(assets\imgs\background.png) no-repeat center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
 body {
-    background: url(assets\imgs\background.jpg);
+    background: inherit;
+    text-align: center;
+    color: #43658B;
+    font-size: large;
+    height: 100%;
+}
+
+form {
+    position: relative;
+    top: 50px;
+    margin: 20px 10px 20px 10px;
+    font-family: cursive;
+    font-size: large;
+}
+
+input:focus,
+button:focus {
+    box-shadow: 0 0 2px 3px #7882A4 !important;
+    border-radius: 0.3rem;
+}
+
+input, button {
+    border: #43658B solid !important;
+    border-radius: 0.3rem;
+    background-color: #ffffff;
+    padding: 1px 15px 1px 15px;
+    margin: 0 5px 0 5px;
+    color: #43658B;
+}
+
+.myCard {
+    background: url(assets\imgs\card.jpg) no-repeat fixed;
+    border-radius: 0.5rem;
+    position: relative;
+    padding: 30px 30px 30px 30px;
+    top: 80px;
+}
+
+.location, 
+.temp {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.date {
+    font-family: cursive;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.moreinfo {
+    margin-top: 30px;
+}
+
+a {
+    color: #E36387 !important;
+}
+a:hover {
+    background-color: #ffffff;
+    border-radius: 0.3rem;
 }
