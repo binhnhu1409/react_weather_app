@@ -1,3 +1,4 @@
+/* ---- base layout ------ */
 html {
     background: url(assets\imgs\background.png) no-repeat center; 
     -webkit-background-size: cover;
@@ -15,6 +16,7 @@ body {
     height: 100%;
 }
 
+/*--- App component styling --- */
 form {
     position: relative;
     top: 50px;
@@ -38,6 +40,8 @@ input, button {
     color: #43658B;
 }
 
+
+/*--- WeatherCard component styling --- */
 .myCard {
     background: url(assets\imgs\card.jpg) no-repeat fixed;
     border-radius: 0.5rem;
@@ -51,21 +55,19 @@ input, button {
     font-size: 30px;
     font-weight: 600;
 }
-
 .date {
     font-family: cursive;
     font-size: 28px;
     margin-bottom: 30px;
 }
-
 .moreinfo {
     margin-top: 30px;
 }
 
-a {
+.weather a {
     color: #E36387 !important;
 }
-a:hover {
+.weather a:hover {
     background-color: #ffffff;
     border-radius: 0.3rem;
 }

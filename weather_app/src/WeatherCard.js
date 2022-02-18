@@ -24,7 +24,7 @@ const WeatherCard = (props) => {
 
     //return weather card after user input valid location name
     return (
-        <div>
+        <div className='weather'>
             <Container>
                 <Row>
                     <Col md={{ span: 6, offset: 3 }} className="myCard">
