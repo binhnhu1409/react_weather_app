@@ -10,7 +10,7 @@ const App = () => {
 
   const [locationName, setLocationName] = useState()
   const [weather, setWeather] = useState()
-  const [warningMessage, setWarningMessage] = useState()
+  const [errorMessage, setErrorMessage] = useState()
 
   //get location name from user input
   const handleLocationChange = (event) => {
@@ -31,30 +31,32 @@ const App = () => {
         //if fetch data successful, based on location id, get weather data
         if (response.data.length > 0) {
           axios
-            .get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}`)
+            .get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}&metric=true`)
             .then(response => {
               setWeather(response.data)
-              setWarningMessage('')
+              setErrorMessage('')
             })
         }
         //otherwise, return a message to let user know input is invalid
         else {
-          setWarningMessage('Invalid city name!')
+          setErrorMessage('Some error happened...')
         }
       })
   }
 
   return (
-    <div>
+    <div className='App'>
       <form>
         <input
+          autoComplete='off'
+          autoFocus
           value={locationName}
           onChange={handleLocationChange}
           placeholder='Please enter the name of a city'
         />
         <button type="submit" onClick={getWeather}>Show weather info</button>
       </form>
-      <div> {warningMessage}</div>
+      <div> {errorMessage}</div>
       <WeatherCard weather={weather} locationName={locationName} />
     </div>
   )
