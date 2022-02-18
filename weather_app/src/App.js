@@ -2,11 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 
-import API_KEY from './api';
-import WeatherCard from './WeatherCard';
-import Error from './Error';
-import Header from './Header';
-import Footer from './Footer';
+import API_KEY from './components/api';
+import WeatherCard from './components/WeatherCard';
+import Error from './components/Error';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 const App = () => {
