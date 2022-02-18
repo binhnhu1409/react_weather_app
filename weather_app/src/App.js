@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import API_KEY from './api';
 import WeatherCard from './WeatherCard';
+import Error from './Error';
 
 
 const App = () => {
@@ -58,6 +59,7 @@ const App = () => {
       </form>
       <div> {errorMessage}</div>
       <WeatherCard weather={weather} locationName={locationName} />
+      <Error errorMessage={errorMessage} />
     </div>
   )
 }
