@@ -33,33 +33,27 @@ const App = () => {
 
     //get location id based on location name
     axios
-      .get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${locationName}`)
+      .get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${locationName}`)
       .then(response => {
         console.log(response.data[0].Key)
 
         //if fetch data successful, based on location id, get weather data
+        //if fetch data successful, based on location id, get weather data
         if (response.data.length > 0) {
           axios
-            .get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}&metric=true`)
+            .get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}&metric=true`)
             .then(response => {
               setWeather(response.data)
-
-              //if the app cannot fetch data due to call limitation, return error
-              if (!weather) {
-                return (
-                  setErrorMessage('Oh nap! Some errors happened...')
-                )
-              }
+              console.log('weather', weather)
+              setErrorMessage('')
             })
-
-
-
         }
         //otherwise, return a message to let user know input is invalid
         else {
           setErrorMessage('Oh nap! Some errors happened...')
         }
       })
+
   }
 
   return (
