@@ -7,7 +7,7 @@ This is a daily weather forecast data app created using create-react-app and Acc
 ### Task has been done:
 - Create a homepage that displays the a textfield asking users to enter the name of a city.
 - Fetch the weather data from AccuWeather API and show the weather information in a card once user pressed Enter and the name of the city is valid.
-- Show error messages to users if the weather data can't be fetched.
+- Show error messages to users if the weather data can't be fetched or when user enter an invalid input.
 - Divide the app into reusable and smaller components
 - Created an attractive front-end.
 - Deploy the app to Netlify.
@@ -51,3 +51,7 @@ weather_app
 - HTML
 - CSS
 - React Bootstrap
+
+### More images from the app
+![image](https://github.com/binhnhu1409/react_weather_app/blob/main/weather_app/src/assets/imgs/error1.JPG)
+![image](https://github.com/binhnhu1409/react_weather_app/blob/main/weather_app/src/assets/imgs/error2.JPG)
