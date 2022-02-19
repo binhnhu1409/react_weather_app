@@ -23,23 +23,25 @@ const App = () => {
     console.log('locationName', event.target.value)
     setLocationName(event.target.value)
     //erase old data immediately when there is any change on user's input
-    setWeather('')
+
   }
 
   //fetch data from Accuweather API
   async function getWeather(event) {
     event.preventDefault()
+    setWeather()
     temp.value = ''
 
     //get location id based on location name
     axios
       .get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${locationName}`)
       .then(response => {
-        console.log(response.data[0].Key)
+        console.log('location after', response)
 
         //if fetch data successful, based on location id, get weather data
         //if fetch data successful, based on location id, get weather data
         if (response.data.length > 0) {
+          console.log(response.data[0].Key)
           axios
             .get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}&metric=true`)
             .then(response => {
