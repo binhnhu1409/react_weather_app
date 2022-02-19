@@ -20,7 +20,6 @@ const App = () => {
 
   //get location name from user input
   const handleLocationChange = (event) => {
-    console.log('locationName', event.target.value)
     setLocationName(event.target.value)
   }
 
@@ -35,16 +34,13 @@ const App = () => {
     axios
       .get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${locationName}`)
       .then(response => {
-        console.log('location after', response)
 
         //if fetch data successful, based on location id, get weather data
         if (response.data.length > 0) {
-          console.log(response.data[0].Key)
           axios
             .get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${response.data[0].Key}?apikey=${API_KEY}&metric=true`)
             .then(response => {
               setWeather(response.data)
-              console.log('weather', weather)
               setErrorMessage('')
             })
         }
@@ -53,13 +49,11 @@ const App = () => {
           setErrorMessage('Oh snap! Some errors happened...')
         }
       })
+      // when cannot fetch data...
       .catch(err => {
-        console.log('error', err.toJSON())
         setErrorMessage('Oh snap! The app is running out of free AccuWeather API request...')
       })
   }
-
-
 
   return (
     <div className='App'>
@@ -74,7 +68,6 @@ const App = () => {
         />
         <button type="submit" onClick={getWeather}>Show weather info</button>
       </form>
-      <div> {errorMessage}</div>
       <WeatherCard weather={weather} locationName={locationName} />
       <Error errorMessage={errorMessage} />
       <Footer />
