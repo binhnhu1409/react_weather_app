@@ -32,9 +32,6 @@ weather_app
     │
     ├───assets
     │   └───imgs
-    │           background.png
-    │           card.jpg
-    │           webdemo.JPG
     │
     └───components
             api.js
