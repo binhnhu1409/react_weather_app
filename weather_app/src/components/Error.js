@@ -12,11 +12,20 @@ const Error = (props) => {
         )
     }
 
-    // if there is error, return this card
+    // show this when the app is running out of request
+    if (errorMessage.includes('API')) {
+        return (
+            <Alert variant='danger'>
+                <Alert.Heading>{errorMessage}</Alert.Heading>
+            </Alert>
+        )
+    }
+
+    // show this for other errors
     return (
         <Alert variant='danger'>
             <Alert.Heading>{errorMessage}</Alert.Heading>
-            <p>Check and change this city name, then try again. Still no? Maybe the app is running out of the calls...</p>
+            <p>Perhaps you want to check and change this city name, then try again.</p>
         </Alert>
     );
 }

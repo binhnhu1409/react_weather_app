@@ -36,7 +36,7 @@ input, button {
     border-radius: 0.3rem;
     background-color: #ffffff;
     padding: 1px 15px 1px 15px;
-    margin: 0 5px 0 5px;
+    margin: 0 5px 20px 5px;
     color: #43658B;
 }
 
@@ -47,7 +47,7 @@ input, button {
     border-radius: 0.5rem;
     position: relative;
     padding: 20px 30px 20px 30px;
-    top: 60px;
+    top: 30px;
 }
 
 .location, 
@@ -81,7 +81,8 @@ input, button {
 }
 .footer {
     position: relative;
-    top: 100px;
+    top: 60px;
     color: #ffff;
 }
+
 
