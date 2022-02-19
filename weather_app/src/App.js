@@ -22,13 +22,12 @@ const App = () => {
   const handleLocationChange = (event) => {
     console.log('locationName', event.target.value)
     setLocationName(event.target.value)
-    //erase old data immediately when there is any change on user's input
-
   }
 
   //fetch data from Accuweather API
   async function getWeather(event) {
     event.preventDefault()
+    //erase old data immediately when there is any change on user's input
     setWeather()
     temp.value = ''
 
@@ -38,7 +37,6 @@ const App = () => {
       .then(response => {
         console.log('location after', response)
 
-        //if fetch data successful, based on location id, get weather data
         //if fetch data successful, based on location id, get weather data
         if (response.data.length > 0) {
           console.log(response.data[0].Key)
@@ -52,11 +50,16 @@ const App = () => {
         }
         //otherwise, return a message to let user know input is invalid
         else {
-          setErrorMessage('Oh nap! Some errors happened...')
+          setErrorMessage('Oh snap! Some errors happened...')
         }
       })
-
+      .catch(err => {
+        console.log('error', err.toJSON())
+        setErrorMessage('Oh snap! The app is running out of free AccuWeather API request...')
+      })
   }
+
+
 
   return (
     <div className='App'>
